@@ -11,6 +11,16 @@ let me = {
 }
 console.log(me)
 
+let awesome = {
+  firstName: 'jake',
+  middlename: 'charles',
+  lastName: 'knudsen',
+ 
+ age: 23,
+ sex: 'male'
+
+}
+console.log(awesome)
 //////////////////////////// PROBLEM 2 ////////////////////////////
 
 //Create an object saved to the variable dog.
@@ -20,21 +30,25 @@ console.log(me)
 
 //Code here
 
-
-
+let dog = {
+  name: "jack",
+  color: "blonde",
+  age: 8,
+  goodboy: true
+}
+console.log(dog)
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
 //Code here
 
-
-
+let dogsname = dog.name
+console.log(dogsname)
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
 //Code here
-
-
+console.log(dog['color'])
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
 /*
@@ -43,23 +57,31 @@ console.log(me)
 */
 
 //Code here
-
+let favoriteThings = {
+  band: 'blink 182',
+  food: 'fried rice',
+  person: 'idk:/',
+  book: 'how to be a leader!',
+  moive: 'wolf on wall street!',
+  holiday: 'not feburay 14th '
+}
 
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
 //Code here
-
-
+favoriteThings['gun'] = 'bretta 9mm'// this both do the same thing. 
+favoriteThings.truck = "toyota tacoma"
+console.log(favoriteThings)
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
   and change the value of the book key in your favoriteThings object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
 */
 
 //Code here
-
-
+favoriteThings.food = 'chicken nuggets'// we changed the value of what the food container was. if you run to console.logs youll see one object with food = fried rice
+console.log(favoriteThings)// and one object that has the newlly updated food which = chicken nuggets now. becuase we just resigneed the value
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
 // Do not edit the code below.
@@ -76,7 +98,7 @@ var carDetails = {
 */
 
 //Code Here
-
+//const {color, make, model, year}= car
 
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
@@ -89,12 +111,11 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  const {title, firstname, lastName} = obj
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
-}
-
+} 
 
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
@@ -108,6 +129,11 @@ function greeting( obj ) {
 */
 
 //Code Here
+function totalPopulation(obj){
+  const{utah, california, texas, arizona}=obj
+    return utah + california + texas + arizona
+  }
+
 
 
 
@@ -123,7 +149,10 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function ingredients(object){
+  const{carb, fat, protein}= object
+  return [carb, fat, protein]
+}
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -144,16 +173,17 @@ var user = {
 */
 
 //Code Here
-
-
+user.name = 'Bryan G. Smith'
+user.email = 'bryan.smith@devmounta.in'
+console.log(user)
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
   Using the user object above, delete the users age off of the object.
 */
 
 //Code Here
-
-
+delete user.age
+console.log(user)
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
   Create a class called 'Cat'. Make sure to call your constructor, and require these 3 parameters: name, age, color.
@@ -163,8 +193,15 @@ var user = {
 
 //Code here
 
-
-
+class Cat{
+  constructor(name, age, color){
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+}
+const jake = new Cat('danni', 22, 'black')
+console.log(jake.name)//.name well only print the name. if we did .age itll print the age .color =console.log 'black'
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
   Create a class called 'Wizard'. Make sure to call your constructor, and require these 3 parameters: name, age, favoriteSpell.
@@ -174,7 +211,18 @@ var user = {
 */
 
 //Code here
-
+class Wizard{
+  constructor(name, age, favspell){
+    this.name = name;
+    this.age = age;
+    this.favspell = favspell
+  }
+  castspell(){console.log(
+    `${this.name} has cast his fav ${this.favspell} and im ${this.age} years old!`)
+  }
+}
+let jakek = new Wizard('jake k', 23, 'dance a$$')
+jakek.castspell()
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
     Write a class called Phone. We'll use it as if we were creating
@@ -199,8 +247,25 @@ var user = {
 */
 
 //Code Here
+class Phone {
+  constructor(brand, model, storage, color, price) {
+    this.brand = brand
+    this.model = model
+    this.storage = storage
+    this.color = color
+    this.price = price
+    this.sold = false
+  }
 
-  
+  sell() {
+    this.sold = true 
+    console.log(`${this.brand} ${this.model} has been sold.`)
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice
+  }
+}
 /*
     Next make three new phone instances using your class.
     Send in values of your choice. They should match these data types:
@@ -212,7 +277,9 @@ var user = {
 */
 
 //Code Here
-
+let phone1 = new Phone('apple', 'ipohne13 max', 265, 'space grey', 1000)
+let phone2 = new Phone('trap', 'flipphone', 1, 'black', 20)
+let phone3 = new Phone('samsung', 'indroid', 550, 'white', 900)
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -221,16 +288,18 @@ var user = {
 */ 
 
 //Code Here 
+phone2.changePrice(900)
+console.log(phone2)
 
 
-/*
-  Now call the sell method on one of your other phone objects
+ // Now call the sell method on one of your other phone objects
 
-  Print the value of that phone's sell property to make sure it's been changed to true
-*/
+  //Print the value of that phone's sell property to make sure it's been changed to true
+//*/
 
 //Code Here 
-
+phone1.sell()
+console.log(phone3.sold)
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
@@ -249,8 +318,8 @@ const colors = {
 //do not edit this object
 
 //Code Here 
-
-
+const colorcopy = {...colors}//... lets you copy. if you do { } itll be an object if [] this after itll return and array. 
+console.log(colorcopy)
 
 /*
  Now use the spread operator to combine the following 2 objects into one. 
@@ -277,6 +346,19 @@ const shippingInfo = {
 //do not edit the objects above
 
 //Code Here
+const helensInfo = {...contactInfo, ...shippingInfo}// what this did is combined the two objects together. 
+console.log(helensInfo)
+//this what came out in the console. the two list added together no dups
+//firstName: 'Helen',
+//lastName: 'Parr',
+//phoneNumber: 1234445555,
+//email: 'helen@mymail.com',
+//street: '100 E. Main Street',
+//city: 'Anytown',
+//state: 'AZ',
+//zipCode: 85004
+//}
+// but it didnt add doubles of anyhting to the new container we made it called helensinfo
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
@@ -295,6 +377,18 @@ const shippingInfo = {
 */
 
 //Code Here 
+class Vehicle{
+  constructor(capacity, color, milage){
+    this.capacity = capacity;
+    this.color = color;
+    this.milage = milage;
+  }
+  move(miles){
+    this.milage += miles
+    console.log(this.milage)
+  }
+}
+
 
 
 /*
@@ -302,7 +396,7 @@ const shippingInfo = {
 */
 
 //Code Here
-
+let newvechile = new Vehicle (5, 'black', 78,000)
 
 /* 
   Now we'll create a class that's based off of the vehicle class. 
@@ -367,3 +461,13 @@ const shippingInfo = {
 */
 
 //Code Here
+
+class Device{
+  constructor(model, manufacturer, operatingsystem, ismobile){
+  this.model= model,
+  this.manufacturer = manufacturer,
+  this.operatingsystem = operatingsystem,
+  this.ismobile = true
+  }
+  over
+} 
